@@ -18,6 +18,9 @@ filetype indent plugin on
  
 " Enable syntax highlighting
 syntax on
+
+" Change colours
+colorscheme blue
  
  
 "------------------------------------------------------------
