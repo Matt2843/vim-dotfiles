@@ -218,3 +218,7 @@ function ExpandSnippetOrCarriageReturn()
     endif
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>""
+" CUSTOM MAPPINGS
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
