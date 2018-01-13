@@ -26,7 +26,13 @@ colorscheme default
 set relativenumber
 set number
 
+" Map leader set to SPACE
+let mapleader="\<Space>"
 
+" Custom Mappings
+map <leader>n :bn<cr>
+map <leader>p :bp<cr>
+map <leader>d :bd<cr>
 "------------------------------------------------------------
 " Must have options {{{1
 "
@@ -218,7 +224,3 @@ function ExpandSnippetOrCarriageReturn()
     endif
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>""
-" CUSTOM MAPPINGS
-map gn :bn<cr>
-map gp :bp<cr>
-map gd :bd<cr>
