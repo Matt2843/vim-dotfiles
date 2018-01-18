@@ -22,7 +22,7 @@ syntax on
 " Change colours
 colorscheme default
  
-" Relative number fix
+" Relative number fix =)
 set relativenumber
 set number
 
