@@ -29,7 +29,7 @@ set number
 " Map leader set to SPACE
 let mapleader="\<Space>"
 
-" Custom Mappings
+" Custom Mappings for buffer switching
 map <leader>n :bn<cr>
 map <leader>p :bp<cr>
 map <leader>d :bd<cr>
