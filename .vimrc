@@ -33,6 +33,22 @@ let mapleader="\<Space>"
 map <leader>n :bn<cr>
 map <leader>p :bp<cr>
 map <leader>d :bd<cr>
+" Custom Mappings for UNICODE pasting
+" AND
+imap <c-u>& <c-v>u2227
+map <leader>u& i<c-v>u2227
+" NOT
+imap <c-u>! <c-v>u00ac
+map <leader>u! i<c-v>u00ac
+" ALPHA
+imap <c-u>a <c-v>u03b1
+map <leader>ua i<c-v>u03b1
+" BETA
+imap <c-u>b <c-v>u03b2
+map <leader>ub <c-v>u03b2
+" GAMMA
+imap <c-u>g <c-v>u03b3
+map <leader>ug <c-v>u03b3
 "------------------------------------------------------------
 " Must have options {{{1
 "
