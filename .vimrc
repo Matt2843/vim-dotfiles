@@ -59,6 +59,8 @@ set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
 "  use <F11> to toggle between paste and no paste
 set pastetoggle=<F11>
+"  set tabs to 4 spaces
+set tabstop=4
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  				AESTHETICS				"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -114,3 +116,23 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+" ultisnips
+let g:UltiSnipsSnippetDirectories=["~/.dotfiles/vim/UltiSnips/", "UltiSnips"]
+let g:UltiSnipsEditSplit="vertical"
+" For sake of manual expanding
+let g:UltiSnipsExpandTrigger="<C-J>"
+" Undefine all jump triggers, because FUNCTIONS
+let g:UltiSnipsJumpForwardTrigger = "<NUL>"
+let g:UltiSnipsJumpBackwardTrigger = "<NUL>"
+let g:ulti_expand_or_jump_res = 0
+function! <SID>ExpandSnippetOrReturn()
+	let snippet = UltiSnips#ExpandSnippetOrJump()
+	if g:ulti_expand_or_jump_res > 0
+		return snippet
+	else
+		return "\<CR>"
+	endif
+endfunction
+inoremap <expr><CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
+snoremap <silent><Tab>   <Esc>:call UltiSnips#JumpForwards()<CR>
+snoremap <silent><S-Tab> <Esc>:call UltiSnips#JumpBackwards()<CR>
