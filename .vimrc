@@ -71,9 +71,13 @@ hi Normal guibg=NONE ctermbg=NONE
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "								MAPPINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+"  leader guides
 inoremap ;g <Esc>0/<++><Enter>c4l
 nnoremap <leader>g <Esc>0/<++><Enter>c4l
 nnoremap <leader>, a<++><NL><Esc>$
+"  ctrl-s
+inoremap <C-s> <Esc>:w<Enter>i
+nnoremap <C-s> :w<Enter>
 "  map capital y i.e. Y to act like D and C i.e. yank to eol
 nnoremap Y y$
 "  custom mappings for buffer switching
@@ -136,6 +140,8 @@ autocmd FileType cpp,h,hpp inoremap { {}<++><Esc>4hi
 autocmd FileType cpp,h,hpp inoremap ( ()<++><Esc>4hi
 autocmd FileType cpp,h,hpp inoremap ;io #include <iostream><NL>
 autocmd FileType cpp,h,hpp inoremap ;str #include <string><NL>
-autocmd FileType cpp,h,hpp inoremap ;cout std::cout << "" << std::endl;<NL><++><Esc>k$14hi
+autocmd FileType cpp,h,hpp inoremap ;print std::cout << "" << std::endl;<NL><++><Esc>k$14hi
 autocmd FileType cpp,h,hpp inoremap ;for for(int i = 0; i < <++>; i++) {<NL><++><NL><Esc><<i}<NL><Nl><++><Esc>5k0i
 autocmd FileType cpp,h,hpp inoremap ;feach for(const auto & i : <++>) {<NL><++><NL><Esc><<i}<NL><NL><++><Esc>5k0i
+autocmd FileType cpp,h,hpp inoremap ;while while(<++>) {<NL><++><NL><Esc><<i}<NL><NL><++><Esc>5k0i
+autocmd FileType cpp,h,hpp inoremap ;cout std::cout << <++>;<NL><++><Esc>2k0i
