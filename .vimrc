@@ -138,10 +138,11 @@ autocmd FileType cpp,h,hpp inoremap ;tfun <NL>template <typename T<++>><NL><++> 
 autocmd FileType cpp,h,hpp inoremap ;main <NL>int main()<NL>{<NL><++><NL><Esc><<i}<Esc>4k0i
 autocmd FileType cpp,h,hpp inoremap { {}<++><Esc>4hi
 autocmd FileType cpp,h,hpp inoremap ( ()<++><Esc>4hi
-autocmd FileType cpp,h,hpp inoremap ;inc #include <<++>><NL>
+autocmd FileType cpp,h,hpp inoremap ;inc #include <><Esc>i
 autocmd FileType cpp,h,hpp inoremap ;io #include <iostream><NL>
 autocmd FileType cpp,h,hpp inoremap ;str #include <string><NL>
-autocmd FileType cpp,h,hpp inoremap ;print std::cout << "" << std::endl;<NL><++><Esc>k0i
+autocmd FileType cpp,h,hpp inoremap ;vec #include <vector><NL>
+autocmd FileType cpp,h,hpp inoremap ;print std::cout << "" << std::endl;<NL><++><Esc>k$14hi
 autocmd FileType cpp,h,hpp inoremap ;fori for(int i = 0; i < <++>; i++) {<NL><++><NL><Esc><<i}<NL><Nl><++><Esc>4k0i
 autocmd FileType cpp,h,hpp inoremap ;feach for(const auto & i : <++>) {<NL><++><NL><Esc><<i}<NL><NL><++><Esc>4k0i
 autocmd FileType cpp,h,hpp inoremap ;while while(<++>) {<NL><++><NL><Esc><<i}<NL><NL><++><Esc>4k0i
