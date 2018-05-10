@@ -15,7 +15,7 @@ let mapleader=" "
 "  set nocompatible to disable vi defaults.
 set nocompatible
 "  filetype plugin on, make vim determine filetype
-filetype plugin on
+filetype plugin indent on
 "  syntax on enable language syntax detection
 syntax on
 "  set the encoding to be UTF-8
@@ -59,6 +59,7 @@ set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 "  set tabs to 4 spaces
 set tabstop=4
+set shiftwidth=4
 set autoindent
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  								AESTHETICS								"
@@ -76,18 +77,23 @@ nnoremap <leader>, a<++><NL><Esc>$
 "  map capital y i.e. Y to act like D and C i.e. yank to eol
 nnoremap Y y$
 "  custom mappings for buffer switching
-map <leader>n :bn<cr>
-map <leader>p :bp<cr>
-map <leader>d :bd<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+nnoremap <leader>d :bd<cr>
 "  map <C-L> (redraw screen) to also turn off search hl until next
 nnoremap <C-L> :nohl<CR><C-L>
 "  C-T for new tab
 nnoremap <C-t> :tabnew<cr>
 "  copy selected text to system clipboard
 vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><Enter>
+"  YCM goto mappings
+inoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
+nnoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  								PLUGINS					  				"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+"  YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 "  Vim-Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -123,10 +129,11 @@ let g:airline_symbols.linenr = ''
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 autocmd FileType cpp,h,hpp inoremap ;fun <NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>6k0i
 autocmd FileType cpp,h,hpp inoremap ;tfun <NL>template <typename T><NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>7k0i
-autocmd FileType cpp,h,hpp inoremap ;main <NL>int main(int argc, char * argv[])<NL>{<NL><Tab><++><NL><Esc><<i}<Esc>4k0i
-autocmd FileType cpp,h,hpp inoremap ;class <NL>class <++><NL>{<NL><NL>public:<NL><Tab><++><NL><NL><Esc><<iprivate:<NL><Tab><++><NL><NL><Esc><<i};<Esc>10k0i
+autocmd FileType cpp,h,hpp inoremap ;main <NL>int main()<NL>{<NL><++><NL><Esc><<i}<Esc>4k0i
 autocmd FileType cpp,h,hpp inoremap { {}<++><Esc>4hi
 autocmd FileType cpp,h,hpp inoremap ( ()<++><Esc>4hi
 autocmd FileType cpp,h,hpp inoremap ;io #include <iostream><NL>
 autocmd FileType cpp,h,hpp inoremap ;str #include <string><NL>
 autocmd FileType cpp,h,hpp inoremap ;cout std::cout << "" << std::endl;<NL><++><Esc>k$14hi
+autocmd FileType cpp,h,hpp inoremap ;for for(int i = 0; i < <++>; i++) {<NL><++><NL><Esc><<i}<NL><Nl><++><Esc>5k0i
+autocmd FileType cpp,h,hpp inoremap ;feach for(const auto & i : <++>) {<NL><++><NL><Esc><<i}<NL><NL><++><Esc>5k0i
