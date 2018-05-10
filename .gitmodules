@@ -40,3 +40,6 @@
 [submodule "bundle/dracula-theme"]
 	path = bundle/dracula-theme
 	url = git@github.com:dracula/vim.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe
