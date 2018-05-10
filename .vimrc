@@ -1,5 +1,5 @@
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"			      				Matt's VIMRC							"
+"								Matt's VIMRC							"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "								PATHOGEN								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -10,7 +10,7 @@ execute pathogen#helptags()
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 let mapleader=" "
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  								SETTINGS								"
+"								SETTINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  set nocompatible to disable vi defaults.
 set nocompatible
@@ -62,14 +62,14 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  								AESTHETICS								"
+"								AESTHETICS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  dracula is awesome
 colorscheme dracula
 "  disable GB to inherit from term.
 hi Normal guibg=NONE ctermbg=NONE
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  								MAPPINGS								"
+"								MAPPINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 inoremap ;g <Esc>0/<++><Enter>c4l
 nnoremap <leader>g <Esc>0/<++><Enter>c4l
@@ -89,11 +89,11 @@ vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><Enter>
 "  YCM goto mappings
 inoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
 nnoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
+"  AutoFormat mappings
+nnoremap <F3> :AutoFormat
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  								PLUGINS					  				"
+"								PLUGINS									"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  AutoFormat
-au BufWrite * :Autoformat
 "  YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 "  Vim-Airline
@@ -103,7 +103,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'aurora'
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 " unicode symbols
 let g:airline_left_sep = '»'
@@ -127,7 +127,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  								CPP-SNIPPETS			  				"
+"								CPP-SNIPPETS							"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 autocmd FileType cpp,h,hpp inoremap ;fun <NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>6k0i
 autocmd FileType cpp,h,hpp inoremap ;tfun <NL>template <typename T><NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>7k0i
