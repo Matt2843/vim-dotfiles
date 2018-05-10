@@ -1,16 +1,16 @@
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"			       Matt's VIMRC				"
+"			      				Matt's VIMRC							"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"				PATHOGEN				"
+"								PATHOGEN								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 execute pathogen#infect()
 execute pathogen#helptags()
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"				SET THE LEADER				"
+"								SET THE LEADER							"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 let mapleader=" "
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  				SETTINGS				"
+"  								SETTINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  set nocompatible to disable vi defaults.
 set nocompatible
@@ -38,8 +38,6 @@ set ignorecase
 set smartcase
 "  allow backspacing over autoindent, line breaks and start of insert actions
 set backspace=indent,eol,start
-"  when opening a new line and no filetype-specific indenting is enabled.
-set autoindent
 "  always display the cursor position on the last line of the screen or in the
 "  status bar
 set ruler
@@ -61,18 +59,22 @@ set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 "  set tabs to 4 spaces
 set tabstop=4
+set autoindent
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  				AESTHETICS				"
+"  								AESTHETICS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  dracula is awesome
 colorscheme dracula
 "  disable GB to inherit from term.
 hi Normal guibg=NONE ctermbg=NONE
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  				MAPPINGS				"
+"  								MAPPINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+inoremap ;g <Esc>0/<++><Enter>c4l
+nnoremap <leader>g <Esc>0/<++><Enter>c4l
+nnoremap <leader>, a<++><NL><Esc>$
 "  map capital y i.e. Y to act like D and C i.e. yank to eol
-map Y y$
+nnoremap Y y$
 "  custom mappings for buffer switching
 map <leader>n :bn<cr>
 map <leader>p :bp<cr>
@@ -84,7 +86,7 @@ nnoremap <C-t> :tabnew<cr>
 "  copy selected text to system clipboard
 vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><Enter>
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-"  				PLUGINS  				"
+"  								PLUGINS					  				"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "  Vim-Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -116,3 +118,15 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+"  								CPP-SNIPPETS			  				"
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+autocmd FileType cpp,h,hpp inoremap ;fun <NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>6k0i
+autocmd FileType cpp,h,hpp inoremap ;tfun <NL>template <typename T><NL><++> (<++>)<NL>{<NL><Tab><++><NL><Esc><<i}<NL><NL><++><Esc>7k0i
+autocmd FileType cpp,h,hpp inoremap ;main <NL>int main(int argc, char * argv[])<NL>{<NL><Tab><++><NL><Esc><<i}<Esc>4k0i
+autocmd FileType cpp,h,hpp inoremap ;class <NL>class <++><NL>{<NL><NL>public:<NL><Tab><++><NL><NL><Esc><<iprivate:<NL><Tab><++><NL><NL><Esc><<i};<Esc>10k0i
+autocmd FileType cpp,h,hpp inoremap { {}<++><Esc>4hi
+autocmd FileType cpp,h,hpp inoremap ( ()<++><Esc>4hi
+autocmd FileType cpp,h,hpp inoremap ;io #include <iostream><NL>
+autocmd FileType cpp,h,hpp inoremap ;str #include <string><NL>
+autocmd FileType cpp,h,hpp inoremap ;cout std::cout << "" << std::endl;<NL><++><Esc>k$14hi
