@@ -71,6 +71,8 @@ hi Normal guibg=NONE ctermbg=NONE
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 "								MAPPINGS								"
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+"  remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 "  leader guides
 inoremap ;g <Esc>0/<++><Enter>c4l
 nnoremap <leader>g <Esc>0/<++><Enter>c4l
@@ -93,6 +95,8 @@ vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><Enter>
 "  YCM goto mappings
 inoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
 nnoremap <C-f> <Esc>:YcmCompleter GoToDeclaration<Enter>
+inoremap <C-S-F> <Esc>:YcmCompleter GoToDefinition<Enter>
+nnoremap <C-S-F> :YcmCompleter GoToDefinition<Enter>
 "  AutoFormat mappings
 nnoremap <F3> :AutoFormat
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
