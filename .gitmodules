@@ -49,3 +49,9 @@
 [submodule "bundle/vim-autoformat"]
 	path = bundle/vim-autoformat
 	url = https://github.com/chiel92/vim-autoformat
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "bundle/Conque-GDB"]
+	path = bundle/Conque-GDB
+	url = https://github.com/vim-scripts/Conque-GDB
