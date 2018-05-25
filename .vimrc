@@ -6,7 +6,7 @@ execute pathogen#infect()
 execute pathogen#helptags()
 "Leader
 let mapleader=" "
-"Settings
+"settings
 "set nocompatible to disable vi defaults.
 set nocompatible
 "filetype plugin on, make vim determine filetype
@@ -70,11 +70,8 @@ endif
 "Mappings
 augroup vimrc_autocmd
 	autocmd!
-	"remove trailing whitespace on save and fix mixed-indent
+	"remove trailing whitespace on save
 	autocmd BufWritePre * %s/\s\+$//e
-	"Save folds
-	autocmd BufWinLeave *.* mkview
-	autocmd BufWinEnter *.* silent loadview
 augroup END
 "leader guides
 inoremap ;g <Esc>0/<++><Enter>c4l
@@ -92,15 +89,19 @@ nnoremap <leader>d :bd<cr>
 nnoremap <C-S-L> :nohl<CR><C-L>
 "C-T for new tab
 nnoremap <C-t> :tabnew<cr>
-"copy selected text to system clipboard
-vnoremap <C-c> "cy<esc>:!echo -n '<C-R>c' \|<space>xclip<CR><Enter>
 "YCM goto mappings
 inoremap <C-F> <Esc>:YcmCompleter GoToDeclaration<Enter>
-nnoremap <C-F> <Esc>:YcmCompleter GoToDeclaration<Enter>
+nnoremap <C-F> :YcmCompleter GoToDeclaration<Enter>
 inoremap <C-S-F> <Esc>:YcmCompleter GoToDefinition<Enter>
 nnoremap <C-S-F> :YcmCompleter GoToDefinition<Enter>
+"NERDTree toglle
+map <leader>o <ESC>:NERDTreeToggle<CR>
 "AutoFormat mappings
 nnoremap <F3> :AutoFormat
+"Copy/Paste (xclip)
+vnoremap <C-c> :!xclip -f -sel clip<CR><CR>`z
+inoremap <C-v> <Esc>mz:-1r !xclip -o -sel clip<CR>`z
+nnoremap <C-v> <Esc>mz:-1r !xclip -o -sel clip<CR>`z
 "Split switching
 "nnoremap <C-h> <Esc><C-w>h
 "nnoremap <C-j> <Esc><C-w>j
