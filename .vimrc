@@ -72,6 +72,8 @@ augroup vimrc_autocmd
 	autocmd!
 	"remove trailing whitespace on save
 	autocmd BufWritePre * %s/\s\+$//e
+	au BufNewFile,BufRead,BufEnter, *.cpp,*.hpp,*.cxx set omnifunc=omni#cpp#complete#Main
+	au BufWinEnter * silent loadview
 augroup END
 "leader guides
 inoremap ;g <Esc>0/<++><Enter>c4l
@@ -110,6 +112,7 @@ nnoremap <C-v> <Esc>mz:-1r !xclip -o -sel clip<CR>`z
 "Plugins
 "YCM
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 "Vim-Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '

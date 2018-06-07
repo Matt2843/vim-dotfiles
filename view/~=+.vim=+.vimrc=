@@ -2,9 +2,9 @@ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
-nmap <buffer>  hs <Plug>GitGutterStageHunk
-nmap <buffer>  hu <Plug>GitGutterUndoHunk
 nmap <buffer>  hp <Plug>GitGutterPreviewHunk
+nmap <buffer>  hu <Plug>GitGutterUndoHunk
+nmap <buffer>  hs <Plug>GitGutterStageHunk
 nmap <buffer> [c <Plug>GitGutterPrevHunk
 vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
 nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
@@ -19,10 +19,10 @@ vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[un
 nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
 vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
 nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
-omap <buffer> ac <Plug>GitGutterTextObjectOuterPending
 xmap <buffer> ac <Plug>GitGutterTextObjectOuterVisual
-omap <buffer> ic <Plug>GitGutterTextObjectInnerPending
+omap <buffer> ac <Plug>GitGutterTextObjectOuterPending
 xmap <buffer> ic <Plug>GitGutterTextObjectInnerVisual
+omap <buffer> ic <Plug>GitGutterTextObjectInnerPending
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -141,15 +141,26 @@ setlocal wrapmargin=0
 silent! normal! zE
 4,6fold
 7,8fold
-7,8fold
 9,61fold
 62,69fold
 70,111fold
 112,145fold
+146,163fold
 146,164fold
-165,176fold
-7
+146,165fold
+146,176fold
+146
 normal! zo
+146
+normal! zo
+146
+normal! zo
+146
+normal! zo
+146
+normal! zc
+146
+normal! zc
 let s:l = 1 - ((0 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
